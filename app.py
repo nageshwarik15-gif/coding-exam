@@ -4,15 +4,13 @@ import subprocess
 import tempfile
 import os
 
-app = Flask(__name__)
-
 def get_connection():
     return psycopg2.connect(
-        host="pg-db",
-        port=5432,
-        dbname="judgedb",
-        user="postgres",
-        password="yourpassword"
+        host=os.environ.get("DB_HOST"),
+        port=int(os.environ.get("DB_PORT", 5432)),
+        dbname=os.environ.get("DB_NAME"),
+        user=os.environ.get("DB_USER"),
+        password=os.environ.get("DB_PASSWORD")
     )
 
 @app.route("/")
