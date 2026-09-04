@@ -3,7 +3,7 @@ import psycopg2
 import subprocess
 import tempfile
 import os
-
+app = Flask(__name__)
 def get_connection():
     return psycopg2.connect(
         host=os.environ.get("DB_HOST"),
