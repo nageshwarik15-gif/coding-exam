@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: .
+    container_name: backend-container
+    ports:
+      - "5000:5000"
+    depends_on:
+      - pg-db
+
+  pg-db:
+    image: postgres
+    container_name: pg-db
+    environment:
+      - POSTGRES_PASSWORD=yourpassword
+      - POSTGRES_DB=judgedb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+volumes:
+  pgdata:
