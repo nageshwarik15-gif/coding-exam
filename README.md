@@ -44,7 +44,7 @@ CodeArena lets students take a coding exam directly in the browser: they pick a 
 
 | **Correct Answer** | **Wrong Answer** |
 |---|---|
-| ![Correct Answer](08-correct-answer.png) | ![Wrong Answer](07-wrong-answer.png) |
+| ![Correct Answer](08-correct-answer.png.png) | ![Wrong Answer](07-wrong-answer.png.png) |
 
 | **Fullscreen Enforcement** | **Language Selection** |
 |---|---|
