@@ -54,9 +54,6 @@ CodeArena lets students take a coding exam directly in the browser: they pick a 
 |---|---|
 | ![Fullscreen Exited](03-fullscreen-enforcement.png) | ![Language Selector](04-language-selector.png) |
 
-| Finish Confirmation | Results Screen |
-|---|---|
-| ![Finish Exam Confirmation](05-finish-exam-confirm.png) | ![Exam Completed](06-exam-results.png) |
 
 ## Tech Stack
 
