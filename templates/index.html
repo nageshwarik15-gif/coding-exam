@@ -193,7 +193,7 @@
 let currentQuestionId = Number(localStorage.getItem('currentQuestionId')) || 1;
 let savedCode = JSON.parse(localStorage.getItem('examSavedCode')) || {};
 let timeLeft = Number(localStorage.getItem('examTimeLeft')) || 30 * 60;
-let examStarted = localStorage.getItem('examStarted') === 'true';
+let examStarted = false;
 let timerInterval = null;
 let score = 0;
 let questionScores = {};
@@ -398,20 +398,14 @@ async function submitCode() {
     resultsPanel.innerHTML = `<div class="result-fail">Request failed: ${err}</div>`;
   }
 }
-window.addEventListener('load', async () => {
-  if (examStarted) {
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('exam-container').classList.add('active');
+window.addEventListener('load', () => {
+  // Always show the Start Exam screen after refreshing
+  document.getElementById('start-screen').style.display = 'flex';
+  document.getElementById('exam-container').classList.remove('active');
+  document.getElementById('warning-screen').classList.remove('active');
 
-    await loadQuestionList();
-    await loadQuestion(currentQuestionId);
-
-    startTimer();
-
-    if (!document.fullscreenElement) {
-      document.getElementById('warning-screen').classList.add('active');
-    }
-  }
+  // Reset the exam-start flag
+  localStorage.removeItem('examStarted');
 });
 </script>
 

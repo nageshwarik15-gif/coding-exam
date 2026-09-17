@@ -126,7 +126,7 @@ def submit():
                     timeout=5
                 )
                 actual_output = proc.stdout.strip()
-                passed = actual_output == expected_output.strip()
+                passed = " ".join(actual_output.split()) == " ".join(expected_output.split())
                 results.append({
                     "input": input_data,
                     "expected": expected_output,
