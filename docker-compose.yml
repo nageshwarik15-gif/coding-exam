@@ -6,17 +6,23 @@ services:
       - "5000:5000"
     depends_on:
       - pg-db
+    environment:
+      DB_HOST: pg-db
+      DB_PORT: 5432
+      DB_NAME: judgedb
+      DB_USER: postgres
+      DB_PASSWORD: yourpassword
 
   pg-db:
     image: postgres
     container_name: pg-db
     environment:
-      - POSTGRES_PASSWORD=yourpassword
-      - POSTGRES_DB=judgedb
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: judgedb
     ports:
       - "5433:5432"
     volumes:
-      - pgdata:/var/lib/postgresql
+      - pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:
